@@ -1,0 +1,14 @@
+.camperListContainer {
+    display: flex;
+    gap: 64px;
+    padding: 100px 64px;
+}
+
+.camperList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+
+    width: 888px;
+    /* height: 358px; */
+}

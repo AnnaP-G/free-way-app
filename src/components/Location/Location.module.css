@@ -1,0 +1,40 @@
+.LocationContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.locationLabel {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(16, 24, 40, 0.6);
+}
+
+.inputWrap  {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    background-color: #f7f7f7;
+    padding-left: 18px;
+}
+
+.svgMap {
+    width: 16px;
+    height: 16px;
+    fill: transparent;
+    stroke-width: 1.30px;
+    stroke: #101828;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.locationInput {
+    background-color: #f7f7f7;
+    border: none;
+    width: 360px;
+    height: 56px;
+    outline: none;
+    cursor: pointer;
+}
