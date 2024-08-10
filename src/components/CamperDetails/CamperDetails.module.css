@@ -1,18 +1,27 @@
+.detailsContainer {
+    max-height: calc(3 * 48px);
+    overflow: hidden;
+}
+
 .detailsList {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    overflow: hidden;
 }
 
 .detailsItem {
     display: flex;
+    gap: 8px;
     width: fit-content;
     border-radius: 100px;
     padding: 12px 18px;
     background-color: #f2f4f7;
     mix-blend-mode: multiply;
     align-items: center;
-    gap: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
 }
 
 .svg {

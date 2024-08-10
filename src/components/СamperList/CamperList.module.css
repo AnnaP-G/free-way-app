@@ -6,9 +6,9 @@
 
 .camperList {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 32px;
-
     width: 888px;
     /* height: 358px; */
 }

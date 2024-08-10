@@ -8,8 +8,9 @@ const CamperItem = ({
   price,
   rating,
   location,
+  description,
+  reviews,
   details,
-  reviewCount,
 }) => {
   const imageUrl = gallery?.[0] || "default-image-url";
   return (
@@ -30,21 +31,24 @@ const CamperItem = ({
             <svg className={css.svgStar}>
               <use href={`${symbolDefs}#icon-star`} />
             </svg>
-            <p className={css.camperRating}>{rating}</p>
-            <p className={css.reviewCount}>({reviewCount} Reviews)</p>
+            <p className={css.camperRating}>
+              {rating} ({reviews.length} Reviews)
+            </p>
             <svg className={css.svgMap}>
               <use href={`${symbolDefs}#icon-map-pin`} />
             </svg>
             <p className={css.camperLocation}>{location}</p>
           </div>
           <div className={css.camperItemWrap}>
-            <p className={css.camperInfo}>
-              The pictures shown here are example vehicles of the respective.
-            </p>
+            <p className={css.camperDescription}>{description}</p>
           </div>
           <CamperDetails details={details} />
         </div>
-        <div>{/* <button>Show more</button> */}</div>
+        <div>
+          <button className={css.camperButton} type="button">
+            Show more
+          </button>
+        </div>
       </li>
     </>
   );

@@ -15,8 +15,9 @@ const CamperList = ({ campers }) => {
             price,
             gallery,
             _id,
+            description,
+            reviews,
             details,
-            reviewCount,
           }) => (
             <CamperItem
               key={_id}
@@ -26,12 +27,14 @@ const CamperList = ({ campers }) => {
               location={location}
               price={price}
               gallery={gallery}
+              description={description}
+              reviews={reviews}
               details={details}
-              reviewCount={reviewCount}
             />
           )
         )}
       </ul>
+      {/* <button>Load more</button> */}
     </div>
   );
 };

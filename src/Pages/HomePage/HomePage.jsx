@@ -1,11 +1,5 @@
-import Welcome from "../../components/Welcome/Welcome.jsx";
-
 const HomePage = () => {
-  return (
-    <div>
-      <Welcome />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default HomePage;

@@ -1,17 +1,19 @@
 .camperItem {
     display: flex;
-    gap: 24px;
+    /* gap: 24px; */
     border: 1px solid rgba(16, 24, 40, 0.2);
     border-radius: 20px;
     padding: 24px;
-
+    position: relative;
+    height: 358px;
 }
 
 .camperImg {
     width: 290px;
-    height: 310px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 10px;    
+    border-radius: 10px;
+    margin-right: 24px;    
 }
 
 .camperItemDetails {
@@ -19,6 +21,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: start; */
+    width: 526px;
 }
 
 .camperItemTitle {
@@ -33,6 +36,12 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    -webkit-line-clamp: 1;
 }
 
 .camperPriceWrap {
@@ -95,10 +104,37 @@
     cursor: pointer;
 }
 
-.camperInfo {
+.camperDescription {
+    display: block;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
     color: #475467;
     margin-bottom: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.camperButton {
+    border-radius: 200px;
+    padding: 16px 40px;
+    width: 166px;
+    height: 56px;
+    background-color: #e44848;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    bottom: 24px;
+    left: 338px;
+}
+
+.camperButton:hover,
+.camperButton:focus {
+    background-color: #d84343;
 }
