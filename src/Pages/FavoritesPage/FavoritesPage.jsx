@@ -4,7 +4,6 @@ const FavoritesPage = () => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    // Load favorites from localStorage
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
   }, []);
