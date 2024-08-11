@@ -1,0 +1,169 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    display: flex;
+    background-color: #fff;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    position: relative;
+    border-radius: 20px;
+    padding: 40px;
+    width: 982px;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.closeButton {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.svgIcon {
+    stroke-width: 3px;
+    stroke: #101828;
+    width: 20px;
+    height: 20px;
+}
+
+.camperName {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    -webkit-line-clamp: 1;
+    color: #101828;
+    margin-bottom: 8px;
+}
+
+.camperPriceWrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.svgStar {
+    width: 16px;
+    height: 16px;
+    fill: #ffc531;
+    margin-right: 4px;
+}
+
+.camperRating {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    margin-right: 16px;
+}
+
+.svgMap {
+    width: 16px;
+    height: 16px;
+    fill: transparent;
+    stroke-width: 1.30px;
+    stroke: #101828;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.camperPrice {
+    display: flex;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.25;
+    margin-bottom: 25px;
+}
+
+.gallery {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.camperImg {
+    border-radius: 10px;
+    width: 290px;
+    height: 310px;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.camperDescription {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #475467;
+    margin-bottom: 44px;
+    text-align: justify;
+}
+
+.Info {
+    display: flex;
+    gap: 40px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+    padding-bottom: 24px;
+    position: relative;
+}
+
+.Info::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(16, 24, 40, 0.2);
+}
+
+.InfoItem {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.InfoItem::after {
+    content: "";
+    position: absolute;
+    bottom: -26px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #e44848;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.InfoItem:hover::after,
+.InfoItem:focus::after,
+.InfoItem.active::after {
+    opacity: 1;
+}
+

@@ -15,6 +15,10 @@ const CamperDetails = ({ details }) => {
     hob,
     microwave,
     gas,
+    adults,
+    children,
+    engine,
+    transmission,
   } = details;
 
   return (
@@ -122,6 +126,42 @@ const CamperDetails = ({ details }) => {
               <use href={`${symbolDefs}#icon-gas`} width="20" height="20" />
             </svg>
             {gas} Gas
+          </li>
+        )}
+        {adults > 0 && (
+          <li className={css.detailsItem}>
+            <svg className={css.svg}>
+              <use href={`${symbolDefs}#icon-adult`} width="20" height="20" />
+            </svg>
+            {adults} Adults
+          </li>
+        )}
+        {children > 0 && (
+          <li className={css.detailsItem}>
+            <svg className={css.svg}>
+              <use href={`${symbolDefs}#icon-child`} width="20" height="20" />
+            </svg>
+            {children} Children
+          </li>
+        )}
+        {engine && (
+          <li className={css.detailsItem}>
+            <svg className={css.svg}>
+              <use href={`${symbolDefs}#icon-engine`} width="20" height="20" />
+            </svg>
+            Engine: {engine}
+          </li>
+        )}
+        {transmission && (
+          <li className={css.detailsItem}>
+            <svg className={css.svg}>
+              <use
+                href={`${symbolDefs}#icon-transmission`}
+                width="20"
+                height="20"
+              />
+            </svg>
+            Transmission: {transmission}
           </li>
         )}
       </ul>

@@ -1,0 +1,26 @@
+.specs {
+    width: 430px;
+}
+
+.specsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.specsList li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.specsList li strong {
+    flex: 0 0 150px;
+}
+
+.specsItem {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33333;
+    color: #101828;
+}

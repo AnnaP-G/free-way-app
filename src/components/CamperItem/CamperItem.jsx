@@ -1,6 +1,9 @@
 import css from "./CamperItem.module.css";
 import symbolDefs from "../icon/symbol-defs.svg";
 import CamperDetails from "../CamperDetails/CamperDetails.jsx";
+import { useState } from "react";
+import CamperModal from "../CamperModal/CamperModal.jsx";
+import { useNavigate } from "react-router-dom";
 
 const CamperItem = ({
   gallery,
@@ -11,8 +14,55 @@ const CamperItem = ({
   description,
   reviews,
   details,
+  id,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(() => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    return favorites.some((camper) => camper.id === id);
+  });
+  const navigate = useNavigate();
+
+  const handleShowMoreClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleFavoriteClick = () => {
+    setIsFavorite((prev) => {
+      const newFavoriteStatus = !prev;
+      const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+      if (newFavoriteStatus) {
+        const updatedFavorites = [
+          ...favorites,
+          {
+            id,
+            name,
+            price,
+            rating,
+            location,
+            description,
+            gallery,
+            reviews,
+            details,
+          },
+        ];
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      } else {
+        const updatedFavorites = favorites.filter((camper) => camper.id !== id);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      }
+
+      return newFavoriteStatus;
+    });
+  };
+
   const imageUrl = gallery?.[0] || "default-image-url";
+
   return (
     <>
       <li className={css.camperItem}>
@@ -22,9 +72,17 @@ const CamperItem = ({
             <h2 className={css.camperName}>{name}</h2>
             <div className={css.camperPriceWrap}>
               <p className={css.camperPrise}>€{price}.00</p>
-              <svg className={css.svgHeart}>
-                <use href={`${symbolDefs}#icon-heart`} />
-              </svg>
+              <button
+                className={css.favoriteButton}
+                onClick={handleFavoriteClick}
+              >
+                <svg
+                  className={css.svgHeart}
+                  fill={isFavorite ? "red" : "none"}
+                >
+                  <use href={`${symbolDefs}#icon-heart`} />
+                </svg>
+              </button>
             </div>
           </div>
           <div className={css.camperRatingWrap}>
@@ -45,11 +103,29 @@ const CamperItem = ({
           <CamperDetails details={details} />
         </div>
         <div>
-          <button className={css.camperButton} type="button">
+          <button
+            className={css.camperButton}
+            type="button"
+            onClick={handleShowMoreClick}
+          >
             Show more
           </button>
         </div>
       </li>
+
+      {isModalOpen && (
+        <CamperModal
+          onClose={handleCloseModal}
+          gallery={gallery}
+          name={name}
+          price={price}
+          rating={rating}
+          location={location}
+          description={description}
+          reviews={reviews}
+          details={details}
+        />
+      )}
     </>
   );
 };

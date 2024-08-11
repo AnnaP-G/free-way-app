@@ -8,6 +8,12 @@
     height: 358px;
 }
 
+.favoriteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .camperImg {
     width: 290px;
     height: 100%;
